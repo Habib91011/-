@@ -1,0 +1,15 @@
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const app = express();
+
+//  ניתוח נתונים מהבקשות
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.set('view engine', 'ejs');
+
+// חיבור למסד הנתונים 
+mongoose.connect('mongodb://localhost/security-system', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});

@@ -1,0 +1,14 @@
+//סכימה לנקודות השמירה
+const checkpointSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  description: String
+});
+const Checkpoint = mongoose.model('Checkpoint', checkpointSchema);
+
+//סכימה לרישום ביקורים
+const visitSchema = new mongoose.Schema({
+  checkpoint: { type: mongoose.Schema.Types.ObjectId, ref: 'Checkpoint', required: true },
+  visitTime: { type: Date, default: Date.now }
+});
+const Visit = mongoose.model('Visit', visitSchema);
+

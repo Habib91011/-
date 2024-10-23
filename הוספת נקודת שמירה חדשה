@@ -1,0 +1,10 @@
+app.post('/checkpoints', async (req, res) => {
+  try {
+    const { name, description } = req.body;
+    await Checkpoint.create({ name, description });
+    res.redirect('/checkpoints');
+  } catch (error) {
+    res.status(500).send("Error adding checkpoint");
+  }
+});
+

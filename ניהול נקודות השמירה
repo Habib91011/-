@@ -1,0 +1,9 @@
+app.get('/checkpoints', async (req, res) => {
+  try {
+    const checkpoints = await Checkpoint.find();
+    res.render('index', { checkpoints: checkpoints });
+  } catch (error) {
+    res.status(500).send("Error retrieving checkpoints");
+  }
+});
+

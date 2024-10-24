@@ -1,0 +1,9 @@
+app.post('/checkpoints/delete/:id', async (req, res) => {
+  try {
+    await Checkpoint.findByIdAndDelete(req.params.id);
+    res.redirect('/checkpoints');
+  } catch (error) {
+    res.status(500).send("Error deleting checkpoint");
+  }
+});
+

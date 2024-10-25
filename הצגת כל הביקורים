@@ -1,0 +1,9 @@
+app.get('/visits', async (req, res) => {
+  try {
+    const visits = await Visit.find().populate('checkpoint');
+    res.render('visits', { visits: visits });
+  } catch (error) {
+    res.status(500).send("Error retrieving visits");
+  }
+});
+

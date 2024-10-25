@@ -1,0 +1,10 @@
+app.post('/visits', async (req, res) => {
+  try {
+    const checkpointId = req.body.checkpointId;
+    await Visit.create({ checkpoint: checkpointId });
+    res.redirect('/visits');
+  } catch (error) {
+    res.status(500).send("Error recording visit");
+  }
+});
+

@@ -1,0 +1,10 @@
+  <h2>רשימת נקודות שמירה</h2>
+  <ul>
+    <% checkpoints.forEach(function(checkpoint) { %>
+      <li><%= checkpoint.name %> - <%= checkpoint.description %>
+        <form action="/checkpoints/delete/<%= checkpoint._id %>" method="POST" style="display:inline;">
+          <button type="submit">מחק</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>

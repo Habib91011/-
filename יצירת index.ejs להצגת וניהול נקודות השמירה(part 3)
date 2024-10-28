@@ -1,0 +1,13 @@
+  <h2>רישום ביקור</h2>
+  <form action="/visits" method="POST">
+    <select name="checkpointId">
+      <% checkpoints.forEach(function(checkpoint) { %>
+        <option value="<%= checkpoint._id %>"><%= checkpoint.name %></option>
+      <% }) %>
+    </select>
+    <button type="submit">רשום ביקור</button>
+  </form>
+
+  <a href="/visits">הצג את הביקורים</a>
+</body>
+</html>

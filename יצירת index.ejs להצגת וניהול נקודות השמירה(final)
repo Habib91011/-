@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkpoints</title>
+</head>
+<body>
+  <h1>ניהול נקודות שמירה</h1>
+  <form action="/checkpoints" method="POST">
+    <input type="text" name="name" placeholder="שם נקודת השמירה" required>
+    <input type="text" name="description" placeholder="תיאור">
+    <button type="submit">הוסף נקודת שמירה</button>
+  </form>
+
+  <h2>רשימת נקודות שמירה</h2>
+  <ul>
+    <% checkpoints.forEach(function(checkpoint) { %>
+      <li><%= checkpoint.name %> - <%= checkpoint.description %>
+        <form action="/checkpoints/delete/<%= checkpoint._id %>" method="POST" style="display:inline;">
+          <button type="submit">מחק</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+
+  <h2>רישום ביקור</h2>
+  <form action="/visits" method="POST">
+    <select name="checkpointId">
+      <% checkpoints.forEach(function(checkpoint) { %>
+        <option value="<%= checkpoint._id %>"><%= checkpoint.name %></option>
+      <% }) %>
+    </select>
+    <button type="submit">רשום ביקור</button>
+  </form>
+
+  <a href="/visits">הצג את הביקורים</a>
+</body>
+</html>

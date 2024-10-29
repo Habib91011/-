@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visits</title>
+</head>
+<body>
+  <h1>רישום ביקורים</h1>
+  <ul>
+    <% visits.forEach(function(visit) { %>
+      <li>נקודת שמירה: <%= visit.checkpoint.name %>, זמן הביקור: <%= visit.visitTime %></li>
+    <% }) %>
+  </ul>
+  <a href="/checkpoints">חזרה לניהול נקודות שמירה</a>
+</body>
+</html>
